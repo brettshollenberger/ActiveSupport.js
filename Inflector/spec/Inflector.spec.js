@@ -165,9 +165,8 @@ describe('Inflector', function() {
 
   // # Capitalizes all the words and replaces some characters in the string to
   // # create a nicer looking title. +titleize+ is meant for creating pretty
-  // # output. It is not used in the Rails internals.
+  // # output.
   // #
-  // # +titleize+ is also aliased as +titlecase+.
   // #
   // #   'man from the boondocks'.titleize   # => "Man From The Boondocks"
   // #   'x-men: the last stand'.titleize    # => "X-Men: The Last Stand"
@@ -179,6 +178,21 @@ describe('Inflector', function() {
       expect('x-men: the last stand'.titleize()).toEqual('X-Men: The Last Stand');
       expect('TheManWithoutAPast'.titleize()).toEqual('The Man Without A Past');
       expect('raiders_of_the_lost_ark'.titleize()).toEqual('Raiders Of The Lost Ark');
+    });
+  });
+
+  describe('String#titlecase', function() {
+    it('is an alias for titleize', function() {
+      expect('man from the boondocks'.titlecase()).toEqual('Man From The Boondocks');
+    })
+  });
+
+  describe('String#classify', function() {
+    it('creates a class name for a plural entity', function() {
+      expect('posts'.classify()).toEqual('Post');
+      expect('sensors'.classify()).toEqual('Sensor');
+      expect('systems'.classify()).toEqual('System');
+      expect('user_projects'.classify()).toEqual('UserProject');
     });
   });
 
