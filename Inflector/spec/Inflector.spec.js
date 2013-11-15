@@ -159,6 +159,7 @@ describe('Inflector', function() {
     it('humanizes a phrase', function() {
       expect('employee_salary'.humanize()).toEqual('Employee salary');
       expect('author_id'.humanize()).toEqual('Author');
+      expect('AuthorComments'.humanize()).toEqual('Author comments');
     });
   });
 

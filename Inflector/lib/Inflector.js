@@ -126,6 +126,7 @@ module.exports = (function() {
   //   'author_id'.humanize       # => "Author"
   STRPROTO.humanize = function() {
     var word = _.clone(this);
+    word     = word.underscore();
     word     = word.replace(/_id$/g, '');
     word     = word.replace(/\_/g, ' ');
     word     = word.replace(/([a-z\d])*/gi, function(t) {
