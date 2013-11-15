@@ -149,4 +149,17 @@ describe('Inflector', function() {
     });
   });
 
+  // Capitalizes the first word and turns underscores into spaces and strips a
+  // trailing "_id", if any. Like +titleize+, this is meant for creating pretty
+  // output.
+  //
+  //   'employee_salary'.humanize # => "Employee salary"
+  //   'author_id'.humanize       # => "Author"
+  describe('String#humanize', function() {
+    it('humanizes a phrase', function() {
+      expect('employee_salary'.humanize()).toEqual('Employee salary');
+      expect('author_id'.humanize()).toEqual('Author');
+    });
+  });
+
 });
