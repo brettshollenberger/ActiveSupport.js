@@ -163,4 +163,23 @@ describe('Inflector', function() {
     });
   });
 
+  // # Capitalizes all the words and replaces some characters in the string to
+  // # create a nicer looking title. +titleize+ is meant for creating pretty
+  // # output. It is not used in the Rails internals.
+  // #
+  // # +titleize+ is also aliased as +titlecase+.
+  // #
+  // #   'man from the boondocks'.titleize   # => "Man From The Boondocks"
+  // #   'x-men: the last stand'.titleize    # => "X-Men: The Last Stand"
+  // #   'TheManWithoutAPast'.titleize       # => "The Man Without A Past"
+  // #   'raiders_of_the_lost_ark'.titleize  # => "Raiders Of The Lost Ark"
+  describe('String#titleize', function() {
+    it('turns a phrase into a title', function() {
+      expect('man from the boondocks'.titleize()).toEqual('Man From The Boondocks');
+      expect('x-men: the last stand'.titleize()).toEqual('X-Men: The Last Stand');
+      expect('TheManWithoutAPast'.titleize()).toEqual('The Man Without A Past');
+      expect('raiders_of_the_lost_ark'.titleize()).toEqual('Raiders Of The Lost Ark');
+    });
+  });
+
 });
