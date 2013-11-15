@@ -102,14 +102,14 @@ module.exports = (function() {
   };
 
   STRPROTO.camelize = function() {
-    var string = this;
+    var string = _.clone(this);
     string = string.replace(/[a-z\d]+/g, function(t) { return t.capitalize(); });
     string = string.replace(/(?:_|(\/))([a-z\d]*)/gi, "$1" + (Inflector.inflections.acronyms["$2"] || "$2".capitalize()));
     return string;
   };
 
   STRPROTO.underscore = function() {
-    var word  = this;
+    var word  = _.clone(this);
     var regex = new RegExp('(?:([A-Za-z\d])|^)' + Inflector.inflections.acronymRegex + '(?=\b|[^a-z])', 'g');
     word = word.replace(regex, '$1$1_$2');
     word = word.replace(/([A-Z\d]+)([A-Z][a-z])/g,'$1_$2');
@@ -117,6 +117,23 @@ module.exports = (function() {
     word = word.toLowerCase();
     return word;
   };
+
+  // Capitalizes the first word and turns underscores into spaces and strips a
+  // trailing "_id", if any. Like +titleize+, this is meant for creating pretty
+  // output.
+  //
+  //   'employee_salary'.humanize # => "Employee salary"
+  //   'author_id'.humanize       # => "Author"
+  STRPROTO.humanize = function() {
+    var word = _.clone(this);
+    word     = word.replace(/_id$/g, '');
+    word     = word.replace(/\_/g, ' ');
+    word     = word.replace(/([a-z\d])*/gi, function(t) {
+      return Inflector.inflections.acronyms[t] || t.toLowerCase();
+    });
+    word     = word.replace(/^\w/, function(t) { return t.capitalize(); });
+    return word;
+  }
 
   function applyInflections(word, rules) {
     var returner, result = _.clone(word.toString());
