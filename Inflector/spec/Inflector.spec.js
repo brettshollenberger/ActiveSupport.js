@@ -203,4 +203,19 @@ describe('Inflector', function() {
     });
   });
 
+  describe('String#ordinalize', function() {
+    it('ordindalizes a number', function() {
+      expect('1'.ordinalize()).toEqual('1st');
+      expect('202'.ordinalize()).toEqual('202nd');
+      expect('4003'.ordinalize()).toEqual('4003rd');
+      expect('5004'.ordinalize()).toEqual('5004th');
+      expect('15'.ordinalize()).toEqual('15th');
+      expect('16'.ordinalize()).toEqual('16th');
+      expect('17'.ordinalize()).toEqual('17th');
+      expect('18'.ordinalize()).toEqual('18th');
+      expect('19'.ordinalize()).toEqual('19th');
+      expect('20'.ordinalize()).toEqual('20th');
+    });
+  });
+
 });

@@ -165,6 +165,20 @@ module.exports = (function() {
     return this.underscore() + '_id';
   };
 
+  STRPROTO.ordinalize = function() {
+    var number = Number(this);
+
+    if (_.include([11, 12, 13], number % 100)) {
+      return number + 'th';
+    } else {
+      var remain = number % 10;
+      if (remain == 1) return number + 'st';
+      if (remain == 2) return number + 'nd';
+      if (remain == 3) return number + 'rd';
+      return number + 'th';
+    }
+  }
+
   function applyInflections(word, rules) {
     var returner, result = _.clone(word.toString());
     if (result.isEmpty() || _.include(Inflector.inflections.uncountables, result.toLowerCase())) return result;
