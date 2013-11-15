@@ -47,3 +47,12 @@ expect('employee_salary'.humanize()).toEqual('Employee salary');
 expect('author_id'.humanize()).toEqual('Author');
 expect('AuthorComments'.humanize()).toEqual('Author comments');
 ```
+
+#### String#titleize
+
+```
+expect('man from the boondocks'.titleize()).toEqual('Man From The Boondocks');
+expect('x-men: the last stand'.titleize()).toEqual('X-Men: The Last Stand');
+expect('TheManWithoutAPast'.titleize()).toEqual('The Man Without A Past');
+expect('raiders_of_the_lost_ark'.titleize()).toEqual('Raiders Of The Lost Ark');
+```
