@@ -151,8 +151,14 @@ module.exports = (function() {
   // #   'x-men: the last stand'.titleize    # => "X Men: The Last Stand"
   // #   'TheManWithoutAPast'.titleize       # => "The Man Without A Past"
   // #   'raiders_of_the_lost_ark'.titleize  # => "Raiders Of The Lost Ark"
-  STRPROTO.titleize = function() {
+  STRPROTO.titleize  = function() {
     return this.humanize().replace(/\b(\w+)/g, function(a) { return a.capitalize(); })
+  };
+
+  STRPROTO.titlecase = function() { return this.titleize(); };
+
+  STRPROTO.classify  = function() {
+    return this.singularize().camelize().replace(/.*\./, '');
   };
 
   function applyInflections(word, rules) {
