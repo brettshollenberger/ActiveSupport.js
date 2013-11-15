@@ -141,4 +141,12 @@ describe('Inflector', function() {
     });
   });
 
+  describe('String#underscore', function() {
+    it('changes a string to underscore case', function() {
+      expect('ActiveModel'.underscore()).toEqual('active_model');
+      expect('SuperDuperClass'.underscore()).toEqual('super_duper_class');
+      expect('SuperHTMLParser'.underscore()).toEqual('super_html_parser');
+    });
+  });
+
 });
