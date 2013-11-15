@@ -1,4 +1,4 @@
-jsActiveSupport
+ActiveSupport.js
 ===============
 
 Active Support for Javascript
