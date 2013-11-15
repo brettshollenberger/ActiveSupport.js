@@ -72,3 +72,12 @@ expect('team_projects'.classify()).toEqual('TeamProject');
 expect('post'.toForeignKey()).toEqual('post_id');
 expect('Sensor'.toForeignKey()).toEqual('sensor_id');
 ```
+
+#### String#ordinalize
+
+```
+expect('1'.ordinalize()).toEqual('1st');
+expect('202'.ordinalize()).toEqual('202nd');
+expect('4003'.ordinalize()).toEqual('4003rd');
+expect('5004'.ordinalize()).toEqual('5004th');
+```
