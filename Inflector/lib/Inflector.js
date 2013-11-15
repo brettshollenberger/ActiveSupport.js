@@ -66,6 +66,8 @@ Inflector.inflections.irregular('sex', 'sexes');
 Inflector.inflections.irregular('move', 'moves');
 Inflector.inflections.irregular('zombie', 'zombies');
 
+Inflector.inflections.acronym('HTML');
+
 Inflector.inflections.uncountable('equipment',
   'information', 'rice', 'money', 'species', 'series', 'fish',
   'sheep', 'jeans', 'police');
@@ -95,24 +97,16 @@ module.exports = (function() {
     return applyInflections(this, Inflector.inflections.singulars);
   };
 
-  // STRPROTO.camelize = function(term, lowercase_first_letter) {
-  //   var string = term.toString();
-  //   if (lowercase_first_letter) {
-  //     string = string.sub(/^[a-z\d]*/g, )
-  //   }
-  // };
+  STRPROTO.capitalize = function() {
+    return this[0].toUpperCase() + this.slice(1).toLowerCase();
+  };
 
-  //     def camelize(term, uppercase_first_letter = true)
-  //   string = term.to_s
-  //   if uppercase_first_letter
-  //     string = string.sub(/^[a-z\d]*/) { inflections.acronyms[$&] || $&.capitalize }
-  //   else
-  //     string = string.sub(/^(?:#{inflections.acronym_regex}(?=\b|[A-Z_])|\w)/) { $&.downcase }
-  //   end
-  //   string.gsub!(/(?:_|(\/))([a-z\d]*)/i) { "#{$1}#{inflections.acronyms[$2] || $2.capitalize}" }
-  //   string.gsub!('/', '::')
-  //   string
-  // end
+  STRPROTO.camelize = function() {
+    var string = this;
+    string = string.replace(/[a-z\d]+/g, function(t) { return t.capitalize(); });
+    string = string.replace(/(?:_|(\/))([a-z\d]*)/gi, "$1" + (Inflector.inflections.acronyms["$2"] || "$2".capitalize()));
+    return string;
+  };
 
   function applyInflections(word, rules) {
     var returner, result = _.clone(word.toString());
