@@ -31,3 +31,11 @@ it('leaves acronyms uppercase', function() {
   expect('HTML_parser'.camelize()).toEqual('HTMLParser');
 });
 ```
+
+#### String#underscore
+
+```
+expect('ActiveModel'.underscore()).toEqual('active_model');
+expect('SuperDuperClass'.underscore()).toEqual('super_duper_class');
+expect('SuperHTMLParser'.underscore()).toEqual('super_html_parser');
+```
