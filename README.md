@@ -65,3 +65,10 @@ expect('sensors'.classify()).toEqual('Sensor');
 expect('systems'.classify()).toEqual('System');
 expect('team_projects'.classify()).toEqual('TeamProject');
 ```
+
+#### String#toForeignKey
+
+```
+expect('post'.toForeignKey()).toEqual('post_id');
+expect('Sensor'.toForeignKey()).toEqual('sensor_id');
+```
