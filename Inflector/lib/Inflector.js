@@ -161,6 +161,10 @@ module.exports = (function() {
     return this.singularize().camelize().replace(/.*\./, '');
   };
 
+  STRPROTO.toForeignKey = function() {
+    return this.underscore() + '_id';
+  };
+
   function applyInflections(word, rules) {
     var returner, result = _.clone(word.toString());
     if (result.isEmpty() || _.include(Inflector.inflections.uncountables, result.toLowerCase())) return result;

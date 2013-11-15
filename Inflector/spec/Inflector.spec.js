@@ -196,4 +196,11 @@ describe('Inflector', function() {
     });
   });
 
+  describe('String#toForeignKey', function() {
+    it('creates the name of a foreign key', function() {
+      expect('post'.toForeignKey()).toEqual('post_id');
+      expect('Sensor'.toForeignKey()).toEqual('sensor_id');
+    });
+  });
+
 });
