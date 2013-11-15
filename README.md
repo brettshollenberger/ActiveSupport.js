@@ -15,6 +15,6 @@ expect('series'.singularize()).toEqual('series');
   
 ```
 expect('post'.pluralize()).toEqual('posts');
-expect('greens'.pluralize()).toEqual('greens');
-expect('axis'.pluralize()).toEqual('axes');
+expect('person'.pluralize()).toEqual('people');
+expect('man'.pluralize()).toEqual('men');
 ```
