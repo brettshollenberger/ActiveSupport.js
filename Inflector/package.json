@@ -1,6 +1,6 @@
 {
-  "name": "your-sweet-unit-test",
-  "version": "0.0.0",
+  "name": "active-support.js",
+  "version": "0.0.1",
   "dependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",

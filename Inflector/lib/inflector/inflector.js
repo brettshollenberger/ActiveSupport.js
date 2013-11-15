@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var English = require('./English');
+var English = require('./english');
 
 module.exports = (function() {
 

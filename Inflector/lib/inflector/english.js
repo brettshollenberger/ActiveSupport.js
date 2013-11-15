@@ -1,6 +1,6 @@
 'use strict';
 
-var Inflections = require('./Inflections');
+var Inflections = require('./inflections');
 
 var English = {};
 

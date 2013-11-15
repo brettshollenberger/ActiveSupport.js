@@ -4,7 +4,7 @@ describe('Inflector', function() {
 
   var Inflector;
   beforeEach(function() {
-    Inflector = require('../lib/Inflector');
+    Inflector = require('../../lib/inflector/inflector');
   });
 
   describe('String#sub', function() {
