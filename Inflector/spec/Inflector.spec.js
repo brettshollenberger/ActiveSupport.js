@@ -132,37 +132,13 @@ describe('Inflector', function() {
 
   describe('String#camelize', function() {
     it('changes a string to camelcase', function() {
-    // By default, +camelize+ converts strings to UpperCamelCase. If the argument
-    // to +camelize+ is set to <tt>:lower</tt> then +camelize+ produces
-    // lowerCamelCase.
-    
-    // +camelize+ will also convert '/' to '::' which is useful for converting
-    // paths to namespaces.
-    
-    //   'active_model'.camelize                # => "ActiveModel"
-    //   'active_model'.camelize(:lower)        # => "activeModel"
-    //   'active_model/errors'.camelize         # => "ActiveModel::Errors"
-    //   'active_model/errors'.camelize(:lower) # => "activeModel::Errors"
-    
-    // As a rule of thumb you can think of +camelize+ as the inverse of
-    // +underscore+, though there are cases where that does not hold:
-    
-    //   'SSLError'.underscore.camelize # => "SslError"
+      expect('active_model'.camelize()).toEqual('ActiveModel');
+      expect('active_model_party'.camelize()).toEqual('ActiveModelParty');
+    });
 
+    it('leaves acronyms uppercase', function() {
+      expect('HTML_parser'.camelize()).toEqual('HTMLParser');
     });
   });
-
-  // # Returns the plural form of the word in the string.
-  // #
-  // # If passed an optional +locale+ parameter, the word will be
-  // # pluralized using rules defined for that language. By default,
-  // # this parameter is set to <tt>:en</tt>.
-  // #
-  // #   'post'.pluralize             # => "posts"
-  // #   'octopus'.pluralize          # => "octopi"
-  // #   'sheep'.pluralize            # => "sheep"
-  // #   'words'.pluralize            # => "words"
-  // #   'CamelOctopus'.pluralize     # => "CamelOctopi"
-  // #   'ley'.pluralize(:es)         # => "leyes"
 
 });
