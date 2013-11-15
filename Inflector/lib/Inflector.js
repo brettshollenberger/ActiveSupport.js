@@ -80,6 +80,11 @@ module.exports = (function() {
     return test instanceof RegExp;
   };
 
+  STRPROTO.gsub = function(regex, w) {
+    var r = regex.toString().replace(/^\//, '').replace(/\/$/, '');
+    return this.replace(new RegExp(r, 'g'), w);
+  }
+
   STRPROTO.sub = function(test, rep) {
     var regex;
     if (isRegExp(test))    regex = test;
@@ -127,14 +132,28 @@ module.exports = (function() {
   STRPROTO.humanize = function() {
     var word = _.clone(this);
     word     = word.underscore();
-    word     = word.replace(/_id$/g, '');
-    word     = word.replace(/\_/g, ' ');
-    word     = word.replace(/([a-z\d])*/gi, function(t) {
+    word     = word.gsub(/_id$/, '');
+    word     = word.gsub(/\_/, ' ');
+    word     = word.gsub(/([a-z\d])*/i, function(t) {
       return Inflector.inflections.acronyms[t] || t.toLowerCase();
     });
     word     = word.replace(/^\w/, function(t) { return t.capitalize(); });
     return word;
-  }
+  };
+
+  // # Capitalizes all the words and replaces some characters in the string to
+  // # create a nicer looking title. +titleize+ is meant for creating pretty
+  // # output. It is not used in the Rails internals.
+  // #
+  // # +titleize+ is also aliased as +titlecase+.
+  // #
+  // #   'man from the boondocks'.titleize   # => "Man From The Boondocks"
+  // #   'x-men: the last stand'.titleize    # => "X Men: The Last Stand"
+  // #   'TheManWithoutAPast'.titleize       # => "The Man Without A Past"
+  // #   'raiders_of_the_lost_ark'.titleize  # => "Raiders Of The Lost Ark"
+  STRPROTO.titleize = function() {
+    return this.humanize().replace(/\b(\w+)/g, function(a) { return a.capitalize(); })
+  };
 
   function applyInflections(word, rules) {
     var returner, result = _.clone(word.toString());
