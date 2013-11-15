@@ -108,6 +108,16 @@ module.exports = (function() {
     return string;
   };
 
+  STRPROTO.underscore = function() {
+    var word  = this;
+    var regex = new RegExp('(?:([A-Za-z\d])|^)' + Inflector.inflections.acronymRegex + '(?=\b|[^a-z])', 'g');
+    word = word.replace(regex, '$1$1_$2');
+    word = word.replace(/([A-Z\d]+)([A-Z][a-z])/g,'$1_$2');
+    word = word.replace(/([a-z\d])([A-Z])/g,'$1_$2');
+    word = word.toLowerCase();
+    return word;
+  };
+
   function applyInflections(word, rules) {
     var returner, result = _.clone(word.toString());
     if (result.isEmpty() || _.include(Inflector.inflections.uncountables, result.toLowerCase())) return result;
