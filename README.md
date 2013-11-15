@@ -56,3 +56,12 @@ expect('x-men: the last stand'.titleize()).toEqual('X-Men: The Last Stand');
 expect('TheManWithoutAPast'.titleize()).toEqual('The Man Without A Past');
 expect('raiders_of_the_lost_ark'.titleize()).toEqual('Raiders Of The Lost Ark');
 ```
+
+#### String#classify
+
+```
+expect('posts'.classify()).toEqual('Post');
+expect('sensors'.classify()).toEqual('Sensor');
+expect('systems'.classify()).toEqual('System');
+expect('team_projects'.classify()).toEqual('TeamProject');
+```
