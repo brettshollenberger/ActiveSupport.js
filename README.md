@@ -3,7 +3,7 @@ jsActiveSupport
 
 Active Support for Javascript
 
-# String#singularize()
+#### String#singularize()
 
 ```
 expect('cloves'.singularize()).toEqual('clove');
@@ -11,7 +11,7 @@ expect('soliloquies'.singularize()).toEqual('soliloquy');
 expect('series'.singularize()).toEqual('series');
 ```
 
-# String#pluralize()
+#### String#pluralize()
   
 ```
 expect('post'.pluralize()).toEqual('posts');
