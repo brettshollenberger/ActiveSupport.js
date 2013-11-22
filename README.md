@@ -19,6 +19,16 @@ expect('person'.pluralize()).toEqual('people');
 expect('man'.pluralize()).toEqual('men');
 ```
 
+Pluralize also accepts a number that dictates pluralization:
+
+```
+expect('chicken'.pluralize(2)).toEqual('chickens');
+expect('chicken'.pluralize(1)).toEqual('chicken');
+
+var errorCount = 1;
+expect('error'.pluralize(errorCount)).toEqual('error');
+```
+
 #### String#camelize
   
 ```
