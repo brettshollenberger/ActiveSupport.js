@@ -70,6 +70,12 @@ describe('Inflector', function() {
       expect('police'.pluralize()).toEqual('police')
     });
 
+    it('accepts a numeric argument that dictates whether or not it should pluralize', function() {
+      expect('chicken'.pluralize(2)).toEqual('chickens');
+      expect('chicken'.pluralize(1)).toEqual('chicken');
+      expect('chicken'.pluralize(0)).toEqual('chickens');
+    });
+
   });
 
   describe('String#singularize', function() {
