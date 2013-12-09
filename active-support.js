@@ -214,7 +214,8 @@ module.exports = (function() {
   };
 
   function applyInflections(word, rules) {
-    var returner, result = _.clone(word.toString());
+    var returner, result;
+    returner = result = _.clone(word.toString());
     if (result.isEmpty() || _.include(English.inflections.uncountables, result.toLowerCase())) return result;
     for (var i in rules) {
       var rule        = rules[i][0];
