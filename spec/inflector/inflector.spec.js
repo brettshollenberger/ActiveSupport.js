@@ -267,12 +267,8 @@ describe('Inflector', function() {
 
   describe('String#camelize', function() {
     it('changes a string to camelcase', function() {
-      expect('active_model'.camelize()).toEqual('ActiveModel');
-      expect('active_model_party'.camelize()).toEqual('ActiveModelParty');
-    });
-
-    it('leaves acronyms uppercase', function() {
-      expect('HTML_parser'.camelize()).toEqual('HTMLParser');
+      expect('active_model'.camelize()).toEqual('activeModel');
+      expect('active_model_party'.camelize()).toEqual('activeModelParty');
     });
   });
 

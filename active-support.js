@@ -260,6 +260,7 @@ module.exports = (function() {
           return t.capitalize(); 
         });
       }
+      string = string[0].downcase() + string.slice(1);
       string = string.replace(/(?:_|(\/))([a-z\d]*)/gi, "$1" + 
         (English.inflections.acronyms["$2"] || "$2".capitalize()));
       return string;
