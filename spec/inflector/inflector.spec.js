@@ -328,6 +328,12 @@ describe('Inflector', function() {
       expect('sensors'.classify()).toEqual('Sensor');
       expect('systems'.classify()).toEqual('System');
       expect('user_projects'.classify()).toEqual('UserProject');
+      expect('gridController'.classify()).toEqual('GridController');
+    });
+
+    it('is idempotent', function() {
+      expect('superDuperGridController'.classify().classify())
+        .toEqual('SuperDuperGridController');
     });
   });
 
