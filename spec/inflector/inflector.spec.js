@@ -361,6 +361,10 @@ describe('Inflector', function() {
       expect('19'.ordinalize()).toEqual('19th');
       expect('20'.ordinalize()).toEqual('20th');
     });
+
+    it('does nothing with non-numbers', function() {
+      expect('fun'.ordinalize()).toEqual('fun');
+    });
   });
 
 });
