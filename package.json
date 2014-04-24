@@ -6,6 +6,9 @@
   },
   "version": "0.0.9",
   "main": "active-support-node.js",
+  "dependencies": {
+	"lodash": "latest"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
