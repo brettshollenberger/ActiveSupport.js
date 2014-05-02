@@ -19,14 +19,6 @@ expect('person'.pluralize()).toEqual('people');
 expect('man'.pluralize()).toEqual('men');
 ```
 
-#### String#possessiveize
-
-```
-expect("friend".pluralize()).toEqual("friend's");
-expect("octopus".possessiveize()).toEqual("octopus's");
-expect("children".pluralize()).toEqual("children's");
-```
-
 Pluralize also accepts a number that dictates pluralization:
 
 ```
@@ -36,6 +28,15 @@ expect('chicken'.pluralize(1)).toEqual('chicken');
 var errorCount = 1;
 expect('error'.pluralize(errorCount)).toEqual('error');
 ```
+
+#### String#possessiveize
+
+```
+expect("friend".pluralize()).toEqual("friend's");
+expect("octopus".possessiveize()).toEqual("octopus's");
+expect("children".pluralize()).toEqual("children's");
+```
+
 
 #### String#camelize
   
