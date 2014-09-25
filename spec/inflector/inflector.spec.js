@@ -110,6 +110,7 @@ describe("Inflector", function() {
       expect("move".pluralize()).toEqual("moves");
       expect("cow".pluralize()).toEqual("cows");
       expect("zombie".pluralize()).toEqual("zombies");
+      expect("curriculum".pluralize()).toEqual("curricula");
     });
 
     it("does not pluralize uncountables", function() {
@@ -239,6 +240,7 @@ describe("Inflector", function() {
       expect("moves".singularize()).toEqual("move");
       expect("cows".singularize()).toEqual("cow");
       expect("zombies".singularize()).toEqual("zombie");
+      expect("curricula".singularize()).toEqual("curriculum");
     });
 
     it("leaves uncountables alone", function() {
